@@ -1,7 +1,7 @@
 /*
  * @Author: vickiWu
  * @Date: 2022-05-17 13:35:32
- * @LastEditTime: 2022-05-17 14:16:28
+ * @LastEditTime: 2022-05-17 14:40:25
  * @LastEditors: vickiWu
  * @Description:
  * @FilePath: \sdk-ts\src\index.ts
@@ -19,8 +19,26 @@
  * @param {string} url  建立链接的ID
  * @return {*}
  */
-export class frontendSdk {
-  initConfig(id: string, url: string) {
-    console.log('%c 🍻 id: ', 'font-size:20px;background-color: #3F7CFF;color:#fff;', id, url);
+interface ConfigOptions {
+  id: string;
+  url: string;
+}
+class LibraryStarter {
+  public id: string;
+
+  public url: string;
+
+  constructor(options: ConfigOptions) {
+    this.id = options.id;
+    this.url = options.url;
+  }
+
+  getConfig() {
+    return {
+      id: this.id,
+      url: this.url,
+    };
   }
 }
+
+export default LibraryStarter;

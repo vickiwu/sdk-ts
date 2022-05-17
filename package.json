@@ -4,11 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "rimraf dist types && cross-env NODE_ENV=development webpack --config ./scripts/webpack.dev.js",
-    "build": "npm run lint && rimraf dist types && cross-env NODE_ENV=production webpack --config ./scripts/webpack.prod.js",
+    "dev": "rimraf dist types &&  cross-env NODE_ENV=development webpack-dev-server --config ./scripts/webpack.dev.js",
+    "build": "npm run lint && npm run test && rimraf dist types && cross-env NODE_ENV=production webpack --config ./scripts/webpack.prod.js",
     "typedoc": "rimraf docs && typedoc",
-    "lint": "eslint src",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "release": "standard-version",
+    "release-major": "standard-version --release-as major",
+    "release-minor": "standard-version --release-as minor",
+    "release-patch": "standard-version --release-as patch",
+    "test": "jest",
+    "lint": "eslint src test"
   },
   "keywords": [],
   "author": "",
@@ -17,6 +22,9 @@
     "@babel/core": "^7.17.12",
     "@babel/plugin-transform-runtime": "^7.17.12",
     "@babel/preset-env": "^7.17.12",
+    "@commitlint/cli": "^17.0.0",
+    "@commitlint/config-conventional": "^17.0.0",
+    "@types/jest": "^27.5.1",
     "@typescript-eslint/eslint-plugin": "^5.24.0",
     "@typescript-eslint/parser": "^5.24.0",
     "babel-loader": "^8.2.5",
@@ -25,21 +33,33 @@
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-jest": "^26.2.2",
     "eslint-plugin-prettier": "^4.0.0",
+    "html-webpack-plugin": "^5.5.0",
     "husky": "^8.0.1",
+    "jest": "^28.1.0",
     "lint-staged": "^12.4.1",
     "prettier": "^2.6.2",
     "rimraf": "^3.0.2",
+    "standard-version": "^9.5.0",
+    "ts-jest": "^28.0.2",
     "ts-loader": "^9.3.0",
     "typedoc": "^0.22.15",
     "typescript": "^4.6.4",
     "webpack": "^5.72.1",
     "webpack-bundle-analyzer": "^4.5.0",
     "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.9.0",
     "webpackbar": "^5.0.2"
   },
   "lint-staged": {
-    "*.js": "eslint --cache --fix",
-    "*.{js,css,md}": "prettier --write"
+    "*.{ts,js}": [
+      "eslint"
+    ]
+  },
+  "standard-version": {
+    "skip": {
+      "commit": true
+    }
   }
 }

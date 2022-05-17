@@ -1,7 +1,7 @@
 /**
  * @Author: vickiWu
  * @Date: 2022-05-17 13:35:05
- * @LastEditTime: 2022-05-17 14:17:19
+ * @LastEditTime: 2022-05-17 14:33:40
  * @LastEditors: vickiWu
  * @Description:
  * @FilePath: \sdk-ts\scripts\webpack.common.js
@@ -42,16 +42,18 @@ module.exports = {
       color: '#fa8c16',
     }),
   ],
-  rules: [
-    {
-      test: /\.(js)$/,
-      loader: 'babel-loader',
-      exclude: /node_modules/,
-    },
-    {
-      test: /\.(ts)$/,
-      loader: 'ts-loader',
-      exclude: /node_modules/,
-    },
-  ],
+  module: {
+    rules: [
+      {
+        test: /\.(js)$/,
+        loader: 'babel-loader',
+        exclude: /node_modules/,
+      },
+      {
+        test: /\.(ts)$/,
+        loader: 'ts-loader',
+        exclude: /node_modules/,
+      },
+    ],
+  },
 };
