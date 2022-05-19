@@ -30,7 +30,7 @@ jobs:
         run: npm run build # 打包
 
       - name: Docs
-        run: npm run typedoc # 打包文档
+        run: npm run docs:build # 打包文档
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3 # 使用部署到 GitHub pages 的 action

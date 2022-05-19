@@ -5,6 +5,8 @@ describe('src/index.ts', () => {
     expect(new LibraryStarter({ id: 'GIQE-QWQE-VFFF', url: 'localhost' }).getConfig()).toStrictEqual({
       id: 'GIQE-QWQE-VFFF',
       url: 'localhost',
+      myName: 'wuwenyu',
+      myUser: 'wwy',
     });
   });
 });

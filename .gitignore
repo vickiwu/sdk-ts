@@ -11,3 +11,8 @@ dist
 
 # jest
 /coverage
+# cache缓存
+.cache
+
+# temp
+.temp
