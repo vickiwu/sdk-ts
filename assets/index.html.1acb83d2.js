@@ -1,0 +1,1 @@
+const e={key:"v-744497ce",path:"/api/",title:"API",lang:"en-US",frontmatter:{},excerpt:"",headers:[{level:2,title:"\u521D\u59CB\u5316",slug:"\u521D\u59CB\u5316",children:[]}],git:{updatedTime:1653008734e3,contributors:[{name:"vickiwu",email:"794431483@qq.com",commits:1}]},filePathRelative:"api/README.md"};export{e as data};
